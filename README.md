@@ -1,6 +1,8 @@
 ## Intro
 Example of Event Sourcing and CQRS with pinball.js
 
+Install node >= v4.0.0 (https://nodejs.org).
+
 ```
 git clone event-sourcing-cqrs
 npm install
