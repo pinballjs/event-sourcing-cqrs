@@ -1,7 +1,7 @@
 ## Intro
 Example of Event Sourcing and CQRS with pinball.js
 
-JavaScript implementation of https://github.com/pinballjs/event-sourcing-examples
+JavaScript implementation of https://github.com/cer/event-sourcing-examples
 
 Install node >= v4.0.0 (https://nodejs.org).
 
