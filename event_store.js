@@ -25,11 +25,13 @@ function eventStore() {
       let changes = store[this.guid];
       if (this.version === changes.length) {
         store[this.guid] = changes.concat(this.events);
-        console.log(store);
         done();
       } else {
         throw new Error('Optimistic lock failed');
       }
+    },
+    getStore: function() {
+      return store;
     }
   };
 }
