@@ -2,9 +2,9 @@
 
 let co = require('co');
 let pinball = require('pinball')('example');
-let es = require('./event_store')();
-let as = require('./account_service');
-let print = require('./utils').print;
+let es = require('./lib/event_store')();
+let as = require('./lib/account_service');
+let print = require('./lib/utils').print;
 require('colors');
 
 pinball.use('eventemitter')
