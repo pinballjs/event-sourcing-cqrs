@@ -1,10 +1,6 @@
 'use strict';
 
-exports.createAccount = createAccount;
-
-function createAccount() {
-  return new Account();
-}
+module.exports = Account;
 
 function Account() {}
 

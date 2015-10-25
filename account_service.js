@@ -1,24 +1,23 @@
 'use strict';
 
-let createAccount = require('./account').createAccount;
+let Account = require('./account');
 
 exports.openAccountService = openAccountService;
 exports.accountService = accountService;
 
 function *openAccountService(done, act) {
-  let account = createAccount();
+  let account = new Account();
   let events = yield account.processCommand(this);
   let reply = yield act({
     role: 'eventstore',
     cmd: 'save',
     events: events
   });
-  account.applyEvents(events);
   done(reply);
 }
 
 function *accountService(done, act) {
-  let account = createAccount();
+  let account = new Account();
   let reply = yield act({
     role: 'eventstore',
     cmd: 'find',

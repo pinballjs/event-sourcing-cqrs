@@ -2,9 +2,9 @@
 
 let co = require('co');
 let pinball = require('pinball')('example');
-let prettyjson = require('prettyjson');
-let es= require('./event_store')();
+let es = require('./event_store')();
 let as = require('./account_service');
+let print = require('./utils').print;
 require('colors');
 
 pinball.use('eventemitter')
@@ -44,7 +44,3 @@ co(function *main() {
 });
 
 
-function print(msg) {
-  console.log(prettyjson.render(msg));
-  console.log('==========================================================================================');
-}
