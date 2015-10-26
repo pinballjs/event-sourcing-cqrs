@@ -4,12 +4,13 @@ let promise = require('bluebird');
 let co = require('co');
 
 let pinball = require('pinball')('example');
-pinball.use('eventemitter');
+pinball.use('redis');
 let es = require('./lib/event_store')(pinball);
 require('./lib/account_service')(pinball);
 require('./lib/money_transfer_service')(pinball);
 
 co(function *main() {
+  yield promise.delay(100);
   let acc1 = yield pinball.act({
     role: 'account',
     cmd: 'open',
@@ -39,5 +40,8 @@ co(function *main() {
   print(es._getStore());
   print(es._getEvents());
 }).catch(function(err) {
+  let print = require('./lib/utils').print;
+  print(es._getStore());
+  print(es._getEvents());
   console.log(err.stack);
 });
