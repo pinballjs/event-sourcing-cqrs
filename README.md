@@ -21,6 +21,7 @@ DEBUG=* node index.js
 * add unique constrain with external table (email of bank account)
 * add email example (side effect executed only one time)
 * create transaction for listener offset and event store update (SELECT FOR UPDATE)
+* implement binlog listener for aurora/mysql
 
 ## References
 |||

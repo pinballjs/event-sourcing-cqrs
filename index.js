@@ -4,7 +4,7 @@ let promise = require('bluebird');
 let co = require('co');
 
 let pinball = require('pinball')('example');
-pinball.use('redis');
+pinball.use('eventemitter');
 let es = require('./lib/event_store')(pinball);
 require('./lib/account_service')(pinball);
 require('./lib/money_transfer_service')(pinball);
@@ -15,7 +15,7 @@ co(function *main() {
     role: 'account',
     cmd: 'open',
     initialBalance: 0
-  });
+  }, 1000, 1);
   yield pinball.act({
     role: 'account',
     cmd: 'credit',
@@ -26,7 +26,7 @@ co(function *main() {
     role: 'account',
     cmd: 'open',
     initialBalance: 10
-  });
+  }, 1000, 1);
   yield pinball.act({
     role: 'moneyTransfer',
     cmd: 'create',
